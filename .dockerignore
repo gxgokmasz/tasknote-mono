@@ -1,0 +1,83 @@
+# ignore system-generated files
+.DS_Store
+
+# ignore python-generated files
+__pycache__
+*.py[oc]
+
+# ignore libraries cache
+.pytest_cache
+.ruff_cache
+.mypy_cache
+
+# ignore development sqlite database
+db.sqlite3
+
+# ignore uwsgi socket
+tasknote.sock
+
+# ignore test coverage reports
+.coverage
+htmlcov
+
+# ignore virtual environments
+.venv
+venv
+
+# ignore git-related files
+.git
+.gitignore
+
+# ignore loggings
+debug.log
+
+# ignore uwsgi socket
+tasknote.sock
+
+# ignore editor and IDE configuration files
+.classpath
+.project
+.settings
+.toolstarget
+.vs
+.vscode
+*.*proj.user
+
+# ignore temporary and auxiliary files
+*.dbmdl
+*.jfm
+
+# ignore build and dependency directories
+bin
+obj
+build
+dist
+wheels
+*.egg-info
+node_modules
+
+# ignore static and media files
+static
+media
+
+# ignore development sqlite database
+*.sqlite
+*.sqlite3
+
+# ignore docker and docker compose files
+.dockerignore
+docker-compose*
+compose.y*ml
+Dockerfile*
+
+# ignore helm and kubernetes files
+charts
+secrets.dev.yaml
+values.dev.yaml
+
+# ignore npm logs
+npm-debug.log
+
+# ignore license and documentation files
+LICENSE
+README.md

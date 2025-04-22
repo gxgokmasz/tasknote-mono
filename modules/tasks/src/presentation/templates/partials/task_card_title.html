@@ -1,0 +1,12 @@
+<p class="xs:hidden
+          {% if task.is_done %}line-through{% endif %}
+          text-slate-900 dark:text-slate-50">
+  {% if task.title|length >= 32 %}
+    {{ task.title|slice:":32"|add:"..." }}
+  {% else %}
+    {{ task.title }}
+  {% endif %}
+</p>
+<p class="xs:block
+          {% if task.is_done %}line-through{% endif %}
+          hidden text-slate-900 dark:text-slate-50">{{ task.title }}</p>

@@ -1,0 +1,19 @@
+<c-task-card-check-input :task="task" />
+<label class="sr-only">Checkbox</label>
+<svg class="{% if task.priority == 1 %}
+              text-orange-500 dark:text-orange-500
+            {% elif task.priority == 2 %}
+              text-amber-500 dark:text-amber-500
+            {% elif task.priority == 3 %}
+              text-lime-500 dark:text-lime-500
+            {% endif %}
+            size-6 items-start"
+     aria-hidden="true"
+     xmlns="http://www.w3.org/2000/svg"
+     fill="none"
+     viewBox="0 0 24 24">
+  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 14v7M5 4.971v9.541c5.6-5.538 8.4 2.64 14-.086v-9.54C13.4 7.61 10.6-.568 5 4.97Z" />
+</svg>
+<div class="flex-1" id="task-{{ task.public_id }}-title">
+  <c-task-card-title :task="task" />
+</div>

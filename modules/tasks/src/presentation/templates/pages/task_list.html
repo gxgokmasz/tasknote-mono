@@ -1,0 +1,41 @@
+{% extends "layouts/main.html" %}
+{% load static %}
+{% block title %}
+  Tasknote | Tarefas
+{% endblock title %}
+{% block content %}
+  <div class="p-4 sm:ml-64">
+    <div class="mt-14 flex flex-col gap-4 rounded-lg p-4 dark:border-slate-700">
+      <div class="flex flex-col items-center gap-4 md:flex-row">
+        <div class="flex w-full gap-4">
+          <h2 class="inline-block text-2xl dark:text-slate-50">Tarefas</h2>
+          <span class="inline-flex items-center rounded border border-gray-500 bg-gray-100 p-1.5 text-xs font-medium text-gray-800 dark:bg-gray-700 dark:text-gray-400">
+            <svg class="me-1.5 h-2.5 w-2.5"
+                 aria-hidden="true"
+                 xmlns="http://www.w3.org/2000/svg"
+                 fill="currentColor"
+                 viewBox="0 0 20 20">
+              <path d="M10 0a10 10 0 1 0 10 10A10.011 10.011 0 0 0 10 0Zm3.982 13.982a1 1 0 0 1-1.414 0l-3.274-3.274A1.012 1.012 0 0 1 9 10V6a1 1 0 0 1 2 0v3.586l2.982 2.982a1 1 0 0 1 0 1.414Z" />
+            </svg>
+            {% now "SHORT_DATETIME_FORMAT" %}
+          </span>
+        </div>
+        <div class="flex w-full justify-end">
+          <a class="bg-marrs-700 hover:bg-marrs-800 focus:ring-marrs-300 dark:bg-marrs-600 dark:hover:bg-marrs-700 dark:focus:ring-marrs-800 flex w-full items-center justify-center gap-2 rounded-lg px-5 py-2.5 text-sm font-medium text-slate-50 focus:outline-none focus:ring-4 md:w-fit"
+             id="new_task_button"
+             href="{% url 'task_create' %}">
+            <svg class="size-6 text-slate-50"
+                 aria-hidden="true"
+                 xmlns="http://www.w3.org/2000/svg"
+                 fill="none"
+                 viewBox="0 0 24 24">
+              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14m-7 7V5" />
+            </svg>
+            <span class="text-slate-50">Adicionar tarefa</span>
+          </a>
+        </div>
+      </div>
+      <c-tasks-group is_daily_tasks="False" />
+    </div>
+  </div>
+{% endblock content %}

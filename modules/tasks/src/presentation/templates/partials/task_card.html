@@ -1,0 +1,21 @@
+<div class="w-full rounded-lg border border-slate-200 bg-slate-50 p-5 shadow dark:border-slate-700 dark:bg-slate-800">
+  <div class="flex">
+    <div class="flex flex-1 items-center gap-4"
+         id="task-{{ task.public_id }}-details">
+      <c-task-card-details :task="task" />
+    </div>
+    <button class="inline-flex items-center rounded-lg bg-slate-50 p-2 text-center text-sm font-medium text-slate-900 hover:bg-slate-100 focus:outline-none focus:ring-4 focus:ring-slate-50 dark:bg-slate-800 dark:text-slate-50 dark:hover:bg-slate-700 dark:focus:ring-slate-600"
+            id="dropdown-{{ task.public_id }}"
+            type="button"
+            data-dropdown-toggle="dropdown-[{{ task.public_id }}]">
+      <svg class="size-5"
+           xmlns="http://www.w3.org/2000/svg"
+           aria-hidden="true"
+           fill="currentColor"
+           viewBox="0 0 16 3">
+        <path d="M2 0a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Zm6.041 0a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM14 0a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Z" />
+      </svg>
+    </button>
+    <c-task-card-dropdown :task="task" />
+  </div>
+</div>

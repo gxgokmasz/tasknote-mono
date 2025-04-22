@@ -1,0 +1,39 @@
+<div class="flex flex-col gap-2">
+  {% if is_daily_tasks == True %}
+    {% for priority in priorities %}
+      <h3 class="text-lg dark:text-slate-50">
+        {% if priority == 1 %}
+          Prioridade Alta
+        {% elif priority == 2 %}
+          Prioridade Média
+        {% elif priority == 3 %}
+          Prioridade Baixa
+        {% endif %}
+      </h3>
+      <div class="flex flex-col gap-2">
+        {% for task in tasks %}
+          {% if task.priority == priority %}<c-task-card :task="task" />{% endif %}
+        {% endfor %}
+      </div>
+    {% endfor %}
+  {% else %}
+    {% for date in dates %}
+      <h3 class="text-lg dark:text-slate-50">
+        {% if date is not None %}
+          <span>{{ date }}</span>
+          {% for out_date in out_dates %}
+            {% if date == out_date %}<span class="text-red-500">(Fora do prazo)</span>{% endif %}
+          {% endfor %}
+          {% if date == today %}<span class="text-marrs-500">(Hoje)</span>{% endif %}
+        {% else %}
+          Sem data definida
+        {% endif %}
+      </h3>
+      <div class="flex flex-col gap-2">
+        {% for task in tasks %}
+          {% if task.finish_date == date %}<c-task-card :task="task" />{% endif %}
+        {% endfor %}
+      </div>
+    {% endfor %}
+  {% endif %}
+</div>

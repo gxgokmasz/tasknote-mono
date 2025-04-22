@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block root %}
+  <div class="h-dvh w-full">
+    <section class="flex min-h-dvh w-full items-center justify-center bg-slate-50 p-2 dark:bg-slate-900">
+      {% block content %}
+      {% endblock content %}
+    </section>
+  </div>
+{% endblock root %}

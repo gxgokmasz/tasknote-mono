@@ -1,0 +1,24 @@
+{% load input_tags %}
+<div class="flex flex-1 p-4 sm:ml-64" id="task-update-form">
+  <div class="mt-14 flex flex-1 flex-col gap-4 rounded-lg p-4 dark:border-slate-700">
+    <div class="flex flex-1 items-center justify-center gap-4 md:flex-row">
+      <div class="w-full max-w-md rounded-lg bg-slate-50 shadow drop-shadow dark:border dark:border-slate-700 dark:bg-slate-800">
+        <div class="flex flex-col gap-4 p-4 md:gap-6 md:p-6">
+          <h1 class="text-2xl font-bold leading-tight tracking-tight text-slate-900 dark:text-slate-50">Atualizar tarefa</h1>
+          <form class="flex flex-col gap-4 md:gap-6">
+            {% csrf_token %}
+            <c-task-update-form-inputs />
+            <button class="bg-marrs-600 hover:bg-marrs-700 focus:ring-marrs-300 dark:bg-marrs-600 dark:hover:bg-marrs-700 dark:focus:ring-marrs-800 w-full rounded-lg p-2.5 text-center text-sm font-medium text-slate-50 focus:outline-none focus:ring-4"
+                    id="submit_button"
+                    type="submit"
+                    hx-post="{% url 'task_update' task.public_id %}"
+                    hx-target="#task-update-form-inputs"
+                    hx-swap="outerHTML">Salvar</button>
+            <a class="w-full rounded-lg bg-slate-600 p-2.5 text-center text-sm font-medium text-slate-50 hover:bg-slate-700 focus:outline-none focus:ring-4 focus:ring-slate-300 dark:bg-slate-600 dark:hover:bg-slate-700 dark:focus:ring-slate-800"
+               href="{% url 'task_list' %}">Voltar</a>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,87 @@
+<div class="flex flex-col gap-4 md:gap-6" id="task-update-form-inputs">
+  <div class="flex flex-col gap-2 md:gap-3">
+    <label class="block text-sm font-medium text-slate-900 dark:text-slate-50"
+           id="id_title_label"
+           for="id_title">{{ form.title.label }}</label>
+    <input class="input-field input-default"
+           id="id_title"
+           name="title"
+           value="{{ task.title }}"
+           type="text"
+           required />
+  </div>
+  <div class="flex flex-col gap-2 md:gap-3">
+    <label class="block text-sm font-medium text-slate-900 dark:text-slate-50"
+           id="id_description_label"
+           for="id_description">{{ form.description.label }}</label>
+    <textarea class="input-field input-default resize-none"
+              id="id_description"
+              name="description"
+              rows="10">{{ task.description }}</textarea>
+  </div>
+  <div class="flex flex-col gap-2 md:gap-3">
+    <label class="block text-sm font-medium text-slate-900 dark:text-slate-50"
+           id="id_priority_label"
+           for="id_priority">{{ form.priority.label }}</label>
+    <ul class="flex justify-between gap-4">
+      <li class="flex flex-1">
+        <input class="peer hidden"
+               id="id_priority_0"
+               name="priority"
+               type="radio"
+               value="1"
+               required
+               {% if task.priority == 1 %}checked{% endif %} />
+        <label class="flex flex-1 cursor-pointer justify-center rounded-lg border border-slate-200 bg-slate-50 p-1 text-slate-500 hover:bg-slate-100 hover:text-slate-600 peer-checked:border-orange-500 peer-checked:text-orange-500 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-400 dark:hover:bg-slate-700 dark:hover:text-slate-300 dark:peer-checked:border-orange-500 dark:peer-checked:text-orange-500"
+               id="id_priority_0_label"
+               for="id_priority_0">Alta</label>
+      </li>
+      <li class="flex flex-1">
+        <input class="peer hidden"
+               id="id_priority_1"
+               name="priority"
+               type="radio"
+               value="2"
+               required
+               {% if task.priority == 2 %}checked{% endif %} />
+        <label class="flex flex-1 cursor-pointer justify-center rounded-lg border border-slate-200 bg-slate-50 p-1 text-slate-500 hover:bg-slate-100 hover:text-slate-600 peer-checked:border-amber-500 peer-checked:text-amber-500 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-400 dark:hover:bg-slate-700 dark:hover:text-slate-300 dark:peer-checked:border-amber-500 dark:peer-checked:text-amber-500"
+               id="id_priority_1_label"
+               for="id_priority_1">Média</label>
+      </li>
+      <li class="flex flex-1">
+        <input class="peer hidden"
+               id="id_priority_2"
+               name="priority"
+               type="radio"
+               value="3"
+               required
+               {% if task.priority == 3 %}checked{% endif %} />
+        <label class="flex flex-1 cursor-pointer justify-center rounded-lg border border-slate-200 bg-slate-50 p-1 text-slate-500 hover:bg-slate-100 hover:text-slate-600 peer-checked:border-lime-500 peer-checked:text-lime-500 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-400 dark:hover:bg-slate-700 dark:hover:text-slate-300 dark:peer-checked:border-lime-500 dark:peer-checked:text-lime-500"
+               id="id_priority_2_label"
+               for="id_priority_2">Baixa</label>
+      </li>
+    </ul>
+  </div>
+  <div class="xs:flex-row flex flex-col justify-between gap-4">
+    <div class="flex flex-1 flex-col gap-2 md:gap-3">
+      <label class="block text-sm font-medium text-slate-900 dark:text-slate-50"
+             id="id_finish_date_label"
+             for="id_finish_date">{{ form.finish_date.label }}</label>
+      <div class="flex flex-col gap-1">
+        <input class="input-field
+                      {% if form.finish_date.errors %}
+                        input-error
+                      {% else %}
+                        input-default
+                      {% endif %}"
+               id="id_finish_date"
+               name="finish_date"
+               type="date"
+               {% if task.finish_date %}value="{{ task.finish_date|date:'c' }}"{% endif %} />
+        {% if form.finish_date.errors %}
+          {% for error in form.finish_date.errors %}<c-error-message>{{ error }}</c-error-message>{% endfor %}
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>

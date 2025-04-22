@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  ::-webkit-calendar-picker-indicator {
+    @apply filter invert-0 dark:invert;
+  }
+}
+
+@layer components {
+  .input-field {
+    @apply block w-full p-2.5 border rounded-lg bg-slate-50 text-slate-900 text-sm dark:bg-slate-700 dark:placeholder-slate-400 dark:text-slate-50;
+  }
+
+  .input-default {
+    @apply border-slate-300 focus:border-marrs-500 focus:ring-marrs-500 dark:border-slate-600 dark:focus:border-marrs-500 dark:focus:ring-marrs-500;
+  }
+
+  .input-error {
+    @apply border-red-500 focus:border-red-500 focus:ring-red-500 dark:focus:border-red-500 dark:focus:ring-red-500;
+  }
+}

@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block root %}
+  <div class="flex min-h-dvh w-full flex-col bg-slate-50 dark:bg-slate-900">
+    <c-navbar />
+    <c-sidebar />
+    {% block content %}
+    {% endblock content %}
+  </div>
+{% endblock root %}
